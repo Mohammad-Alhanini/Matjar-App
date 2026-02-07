@@ -1,3 +1,6 @@
+import 'package:dio/dio.dart';
+import 'package:matjar/core/network/api_error.dart';
+import 'package:matjar/core/network/api_exception.dart';
 import 'package:matjar/core/network/api_service.dart';
 import 'package:matjar/features/home/data/product_model.dart';
 
@@ -10,16 +13,13 @@ class ProductRepo {
   Future<List<ProductModel>> getProducts() async {
     try {
       final response = await _apiService.get('/products/');
-      if (response is List) {
-        return response
-            .map((product) => ProductModel.fromJson(product))
-            .toList();
-      }
-      return [];
+      return (response as List)
+          .map((product) => ProductModel.fromJson(product))
+          .toList();
+    } on DioException catch (e) {
+      throw ApiException.handleError(e);
     } catch (e) {
-      // ignore: avoid_print
-      print(e.toString());
-      return [];
+      throw ApiError(message: e.toString());
     }
   }
 
@@ -36,11 +36,10 @@ class ProductRepo {
   //Delete Product
   Future<dynamic> deleteProduct(int id) async {
     try {
-      // نرسل طلب حذف للمسار products/id
       final response = await _apiService.delete('products/$id', {});
       return response;
     } catch (e) {
-      rethrow; // نرمي الخطأ ليمسكه الكيوبت
+      rethrow;
     }
   }
 }

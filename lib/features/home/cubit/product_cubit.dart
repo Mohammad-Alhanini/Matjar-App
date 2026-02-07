@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:matjar/core/network/api_error.dart';
 import 'package:matjar/features/home/data/product_model.dart';
 import 'package:matjar/features/home/data/product_repo.dart';
 import 'product_state.dart';
@@ -7,21 +8,26 @@ class ProductCubit extends Cubit<ProductState> {
   final ProductRepo productRepo;
 
   ProductCubit(this.productRepo) : super(ProductInitial());
+
+  //Get Products
   Future<void> getProducts() async {
     emit(ProductLoading());
-
     try {
       final products = await productRepo.getProducts();
       if (products.isEmpty) {
-        emit(ProductError("No products found or connection error"));
       } else {
         emit(ProductLoaded(products));
       }
     } catch (e) {
-      emit(ProductError(e.toString()));
+      if (e is ApiError) {
+        emit(ProductError(e.message));
+      } else {
+        emit(ProductError(e.toString()));
+      }
     }
   }
 
+  //Update Product
   Future<void> updateProduct(int id, {String? title, int? price}) async {
     try {
       final Map<String, dynamic> body = {};
@@ -55,6 +61,7 @@ class ProductCubit extends Cubit<ProductState> {
     }
   }
 
+  //Delete Product
   Future<void> deleteProduct(int id) async {
     try {
       if (state is ProductLoaded) {

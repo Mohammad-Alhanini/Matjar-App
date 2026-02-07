@@ -50,7 +50,7 @@ class HomeView extends StatelessWidget {
                           ),
                           child: const Column(children: [UserHeader()]),
                         ),
-                        // Grid Section
+                        // Grid View
                         Expanded(
                           child: GridView.builder(
                             padding: const EdgeInsets.symmetric(
