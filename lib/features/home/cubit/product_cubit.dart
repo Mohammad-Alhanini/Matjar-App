@@ -37,8 +37,8 @@ class ProductCubit extends Cubit<ProductState> {
           if (p.id == id) {
             return ProductModel(
               id: p.id,
-              title: title ?? p.title, // الاسم الجديد أو القديم
-              price: price ?? p.price, // السعر الجديد أو القديم
+              title: title ?? p.title,
+              price: price ?? p.price,
               description: p.description,
               images: p.images,
             );
