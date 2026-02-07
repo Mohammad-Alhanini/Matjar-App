@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1041468675664",
+    "project_id": "matjarapp-a2293",
+    "storage_bucket": "matjarapp-a2293.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041468675664:android:261e16da0c5c3841322355",
+        "android_client_info": {
+          "package_name": "com.example.hungry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeYL1mFJTrq9t-rsflmJqnB6CGWoldm4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
