@@ -1,6 +1,6 @@
-# hungry
+# Matjar
 
-Hungry App
+ Matjar App
 
 ## Getting Started
 
