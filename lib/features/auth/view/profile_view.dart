@@ -137,7 +137,13 @@ class ProfileView extends StatelessWidget {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pop(ctx);
+                                  Navigator.pushAndRemoveUntil(
+                                    ctx,
+                                    MaterialPageRoute(
+                                      builder: (context) => const LoginView(),
+                                    ),
+                                    (route) => false,
+                                  );
                                   context.read<AuthCubit>().logout();
                                 },
                                 child: const Text(
