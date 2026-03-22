@@ -9,7 +9,7 @@ import 'package:matjar/features/auth/view/signup_view.dart';
 import 'package:matjar/features/home/view/home_view.dart';
 import 'package:matjar/shared/custom_text.dart';
 import 'package:matjar/shared/custom_text_form_field.dart';
-import '../widgets/custom_btn.dart';
+import '../widgets/custom_auth_btn.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -139,7 +139,7 @@ class _LoginViewState extends State<LoginView> {
 
                             const Gap(25),
 
-                            // Login Button Logic
+                            // Login Button
                             state is AuthLoading
                                 ? const Center(
                                     child: CupertinoActivityIndicator(
@@ -166,8 +166,7 @@ class _LoginViewState extends State<LoginView> {
 
                             // Create Account
                             CustomAuthBtn(
-                              color: AppColors
-                                  .primary, // جعلته بلون الخلفية ليبدو كأنه شفاف
+                              color: AppColors.primary,
                               textColor: Colors.white,
                               text: "Create Account?",
                               onTab: () {

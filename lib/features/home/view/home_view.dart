@@ -7,7 +7,7 @@ import 'package:matjar/features/home/data/product_model.dart';
 import 'package:matjar/features/home/data/product_repo.dart';
 import 'package:matjar/features/home/view/product_details_view.dart';
 import 'package:matjar/features/home/widget/card_item.dart';
-import 'package:matjar/features/home/widget/user_header.dart';
+import 'package:matjar/features/home/widget/header.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -48,7 +48,7 @@ class HomeView extends StatelessWidget {
                             right: 20,
                             top: 55,
                           ),
-                          child: const Column(children: [UserHeader()]),
+                          child: const Column(children: [Header()]),
                         ),
                         // Grid View
                         Expanded(
@@ -84,7 +84,7 @@ class HomeView extends StatelessWidget {
                                   );
                                 },
                                 child: CardItem(
-                                  image: product.images!.first,
+                                  image: product.images?.first,
                                   text: product.title ?? "No Title",
                                   desc: product.description ?? "",
                                   price: "\$${product.price}",

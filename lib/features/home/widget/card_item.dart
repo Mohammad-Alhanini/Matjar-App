@@ -11,7 +11,8 @@ class CardItem extends StatefulWidget {
     required this.price,
     this.onDeleteTap,
   });
-  final String image, text, desc, price;
+  final String? image;
+  final String text, desc, price;
   final VoidCallback? onDeleteTap;
 
   @override
@@ -28,7 +29,11 @@ class _CardItemState extends State<CardItem> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Image.network(widget.image, width: 140, height: 140)),
+            Center(
+              child: widget.image == null
+                  ? Image.asset("assets/image/profile_image.png")
+                  : Image.network(widget.image!, width: 140, height: 140),
+            ),
             Gap(10),
             Padding(
               padding: EdgeInsetsGeometry.symmetric(horizontal: 12),

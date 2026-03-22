@@ -8,7 +8,7 @@ import 'package:matjar/features/auth/cubit/auth_state.dart';
 import 'package:matjar/features/auth/view/login_view.dart';
 import 'package:matjar/shared/custom_text.dart';
 import 'package:matjar/shared/custom_text_form_field.dart';
-import '../widgets/custom_btn.dart';
+import '../widgets/custom_auth_btn.dart';
 
 class SignupView extends StatefulWidget {
   const SignupView({super.key});

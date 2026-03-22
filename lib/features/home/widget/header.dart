@@ -5,8 +5,8 @@ import 'package:matjar/features/auth/view/profile_view.dart';
 import '../../../core/constants/api_colors.dart';
 import '../../../shared/custom_text.dart';
 
-class UserHeader extends StatelessWidget {
-  const UserHeader({super.key});
+class Header extends StatelessWidget {
+  const Header({super.key});
 
   @override
   Widget build(BuildContext context) {
